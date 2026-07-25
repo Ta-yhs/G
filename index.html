@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ตารางฝึกกีตาร์โปร่ง 8 สัปดาห์ สำหรับมือใหม่</title>
+<style>
+:root{
+  --paper:#E8E6E0; --card:#F7F6F2; --card-2:#EFEDE7;
+  --ink:#1E1B17; --ink-2:#4A453D; --muted:#7A7368; --line:#D3CFC5;
+  --rail:#43281F; --rail-ink:#F2E7DA;
+  --brass:#8F6214; --brass-soft:#EEDFBB;
+  --abalone:#2A6467; --abalone-soft:#D8E7E5;
+  --seg1:#8A7A63; --seg2:#43281F; --seg3:#8F6214; --seg4:#2A6467; --seg5:#C2BAAC;
+  --seg1-fg:#fff; --seg2-fg:#F2E7DA; --seg3-fg:#fff; --seg4-fg:#fff; --seg5-fg:#332F28;
+  --shadow:0 1px 0 rgba(30,27,23,.05), 0 10px 24px -18px rgba(30,27,23,.5);
+  --display:Bahnschrift,"DIN Alternate","Leelawadee UI","Noto Sans Thai","Segoe UI",sans-serif;
+  --body:"Leelawadee UI","Noto Sans Thai","IBM Plex Sans Thai","Segoe UI",system-ui,sans-serif;
+  --mono:Consolas,"Cascadia Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#141210; --card:#1D1A16; --card-2:#252119;
+    --ink:#EDE8DE; --ink-2:#C3BCB0; --muted:#8E877A; --line:#332E27;
+    --rail:#34231B; --rail-ink:#F0E2CE;
+    --brass:#D6A445; --brass-soft:#3B2E17;
+    --abalone:#77B6B7; --abalone-soft:#18302F;
+    --seg1:#9C8C74; --seg2:#6B4335; --seg3:#B98526; --seg4:#3E8B8E; --seg5:#4C4539;
+    --seg1-fg:#14120F; --seg2-fg:#F6ECE0; --seg3-fg:#14120F; --seg4-fg:#08201F; --seg5-fg:#E4DED2;
+    --shadow:0 1px 0 rgba(0,0,0,.4), 0 10px 24px -18px #000;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141210; --card:#1D1A16; --card-2:#252119;
+  --ink:#EDE8DE; --ink-2:#C3BCB0; --muted:#8E877A; --line:#332E27;
+  --rail:#34231B; --rail-ink:#F0E2CE;
+  --brass:#D6A445; --brass-soft:#3B2E17;
+  --abalone:#77B6B7; --abalone-soft:#18302F;
+  --seg1:#9C8C74; --seg2:#6B4335; --seg3:#B98526; --seg4:#3E8B8E; --seg5:#4C4539;
+  --seg1-fg:#14120F; --seg2-fg:#F6ECE0; --seg3-fg:#14120F; --seg4-fg:#08201F; --seg5-fg:#E4DED2;
+  --shadow:0 1px 0 rgba(0,0,0,.4), 0 10px 24px -18px #000;
+}
+:root[data-theme="light"]{
+  --paper:#E8E6E0; --card:#F7F6F2; --card-2:#EFEDE7;
+  --ink:#1E1B17; --ink-2:#4A453D; --muted:#7A7368; --line:#D3CFC5;
+  --rail:#43281F; --rail-ink:#F2E7DA;
+  --brass:#8F6214; --brass-soft:#EEDFBB;
+  --abalone:#2A6467; --abalone-soft:#D8E7E5;
+  --seg1:#8A7A63; --seg2:#43281F; --seg3:#8F6214; --seg4:#2A6467; --seg5:#C2BAAC;
+  --seg1-fg:#fff; --seg2-fg:#F2E7DA; --seg3-fg:#fff; --seg4-fg:#fff; --seg5-fg:#332F28;
+  --shadow:0 1px 0 rgba(30,27,23,.05), 0 10px 24px -18px rgba(30,27,23,.5);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--body); font-size:17px; line-height:1.75;
+}
+.wrap{max-width:60rem; margin:0 auto; padding:2.5rem 1.25rem 4rem}
+h1,h2,h3{text-wrap:balance; line-height:1.35; margin:0}
+p{margin:0}
+
+.eyebrow{
+  font-family:var(--display); font-stretch:87.5%; font-weight:600;
+  text-transform:uppercase; letter-spacing:.14em; font-size:.72rem;
+  color:var(--brass);
+}
+
+/* ---------- header ---------- */
+.masthead{display:flex; flex-direction:column; gap:.9rem; padding-bottom:2rem; border-bottom:2px solid var(--rail)}
+.masthead-top{display:flex; align-items:flex-start; justify-content:space-between; gap:1rem}
+h1{font-size:clamp(1.9rem,5vw,2.9rem); font-weight:700; letter-spacing:-.01em}
+.lede{color:var(--ink-2); max-width:44ch}
+.tint{color:var(--brass); font-weight:700}
+
+.theme-btn{
+  flex:none; font-family:var(--display); font-stretch:87.5%; font-size:.75rem;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2);
+  background:var(--card); border:1px solid var(--line); border-radius:999px;
+  padding:.4rem .85rem; cursor:pointer;
+}
+.theme-btn:hover{border-color:var(--brass); color:var(--brass)}
+.theme-btn:focus-visible{outline:2px solid var(--brass); outline-offset:2px}
+
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(7rem,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:.6rem}
+.stat{background:var(--card); padding:.75rem .9rem}
+.stat b{display:block; font-family:var(--display); font-stretch:75%; font-weight:700; font-size:1.7rem; line-height:1.1; font-variant-numeric:tabular-nums}
+.stat span{font-size:.78rem; color:var(--muted); letter-spacing:.02em}
+
+/* ---------- sections ---------- */
+section{margin-top:3.25rem}
+.sec-head{display:flex; align-items:baseline; gap:.75rem; flex-wrap:wrap; margin-bottom:1.1rem}
+.sec-head h2{font-size:1.35rem; font-weight:700}
+.sec-head .note{font-size:.85rem; color:var(--muted)}
+.prose{max-width:62ch; color:var(--ink-2)}
+
+.card{background:var(--card); border:1px solid var(--line); box-shadow:var(--shadow)}
+.pad{padding:1.15rem 1.25rem}
+
+/* ---------- table ---------- */
+.tablewrap{overflow-x:auto; border:1px solid var(--line); background:var(--card)}
+table{border-collapse:collapse; width:100%; min-width:34rem; font-size:.95rem}
+thead th{
+  background:var(--rail); color:var(--rail-ink); text-align:left; font-weight:600;
+  font-family:var(--display); font-stretch:87.5%; letter-spacing:.06em; text-transform:uppercase;
+  font-size:.72rem; padding:.6rem .85rem; white-space:nowrap;
+}
+tbody td{border-top:1px solid var(--line); padding:.7rem .85rem; vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--card-2)}
+.num{font-family:var(--display); font-stretch:87.5%; font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; font-weight:600}
+.orig{color:var(--muted); font-family:var(--mono); font-size:.85rem}
+.stage{display:flex; align-items:center; gap:.55rem; white-space:nowrap; font-weight:600}
+.dot{width:.7rem; height:.7rem; border-radius:2px; flex:none}
+
+/* ---------- proportion bars ---------- */
+.bars{display:flex; flex-direction:column; gap:1rem; margin-top:1.4rem}
+.barrow{display:grid; grid-template-columns:5.5rem 1fr; align-items:center; gap:.85rem}
+.barlabel{font-family:var(--display); font-stretch:87.5%; text-transform:uppercase; letter-spacing:.08em; font-size:.75rem; color:var(--muted); text-align:right}
+.bar{display:flex; height:2.4rem; overflow:hidden; border:1px solid var(--line)}
+.bar span{
+  display:grid; place-items:center; font-family:var(--display); font-stretch:87.5%;
+  font-weight:700; font-size:.9rem; font-variant-numeric:tabular-nums; min-width:0;
+}
+
+/* ---------- week rail ---------- */
+.weeks{display:flex; flex-direction:column}
+.week{display:grid; grid-template-columns:3.5rem 1fr; gap:1.1rem; position:relative; padding-bottom:1.5rem}
+.week::before{content:""; position:absolute; left:1.72rem; top:.4rem; bottom:0; width:2px; background:var(--line)}
+.week:last-child::before{display:none}
+.fret{position:relative; z-index:1; width:2.6rem; height:2.6rem; margin:0 auto; border-radius:50%;
+  display:grid; place-items:center; background:var(--card); border:2px solid var(--line);
+  font-family:var(--display); font-stretch:75%; font-weight:700; font-size:1.35rem; color:var(--ink-2);
+  font-variant-numeric:tabular-nums}
+.week.mark .fret{background:var(--brass); border-color:var(--brass); color:var(--paper)}
+.wk-body{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--rail); padding:1rem 1.15rem; box-shadow:var(--shadow)}
+.week.mark .wk-body{border-left-color:var(--brass)}
+.wk-title{display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap; margin-bottom:.5rem}
+.wk-title h3{font-size:1.08rem; font-weight:700}
+.badge{font-family:var(--display); font-stretch:87.5%; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase;
+  padding:.15rem .5rem; border-radius:999px; background:var(--brass-soft); color:var(--brass); font-weight:700}
+.wk-body ul{margin:.35rem 0 0; padding-left:1.1rem; color:var(--ink-2); font-size:.95rem}
+.wk-body li{margin:.15rem 0}
+.chips{display:flex; flex-wrap:wrap; gap:.35rem; margin-bottom:.15rem}
+.chip{font-family:var(--display); font-stretch:87.5%; font-weight:700; font-size:.82rem; letter-spacing:.03em;
+  padding:.1rem .55rem; border:1px solid var(--line); background:var(--card-2); color:var(--muted)}
+.chip.new{background:var(--rail); border-color:var(--rail); color:var(--rail-ink)}
+.goal{margin-top:.6rem; padding-top:.6rem; border-top:1px dashed var(--line); font-size:.92rem}
+.goal b{font-family:var(--display); font-stretch:87.5%; text-transform:uppercase; letter-spacing:.09em; font-size:.68rem; color:var(--brass); display:block}
+
+/* ---------- chords ---------- */
+.chordgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(7.5rem,1fr)); gap:.75rem}
+.chordcard{background:var(--card); border:1px solid var(--line); padding:.6rem .4rem .7rem; text-align:center; box-shadow:var(--shadow)}
+.chordcard svg{display:block; margin:0 auto}
+.chordcard .cname{font-family:var(--display); font-stretch:87.5%; font-weight:700; font-size:1.15rem; letter-spacing:.02em}
+.chordcard .cwk{font-size:.7rem; color:var(--muted); letter-spacing:.04em}
+.chordcard .chint{font-size:.72rem; color:var(--muted); margin-top:.15rem; padding:0 .3rem; line-height:1.5}
+
+/* ---------- strumming ---------- */
+.strum{display:flex; flex-direction:column; gap:1.4rem}
+.pattern .ptitle{display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap; margin-bottom:.5rem}
+.pattern .ptitle b{font-size:1rem}
+.pattern .ptitle span{font-size:.85rem; color:var(--muted)}
+.beats{display:grid; grid-template-columns:repeat(8,1fr); gap:2px; max-width:30rem; font-variant-numeric:tabular-nums}
+.beat{background:var(--card-2); border:1px solid var(--line); text-align:center; padding:.35rem .1rem}
+.beat .cnt{font-family:var(--display); font-stretch:87.5%; font-size:.72rem; color:var(--muted); display:block}
+.beat .arr{font-size:1.25rem; line-height:1.3; display:block; color:var(--line)}
+.beat.d{background:var(--rail); border-color:var(--rail)}
+.beat.d .cnt{color:var(--rail-ink); opacity:.7}
+.beat.d .arr{color:var(--rail-ink)}
+.beat.u{background:var(--brass-soft); border-color:var(--brass-soft)}
+.beat.u .arr{color:var(--brass)}
+
+/* ---------- callout blocks ---------- */
+.alt{background:var(--abalone-soft); border:1px solid var(--abalone); border-left-width:3px; padding:1.15rem 1.25rem}
+.alt h3{font-size:1.05rem; color:var(--abalone); margin-bottom:.4rem}
+.alt ul{margin:.4rem 0 0; padding-left:1.1rem; font-size:.95rem}
+.fretboard{overflow-x:auto; margin:.9rem 0 .3rem}
+
+.findings{display:grid; gap:.9rem}
+.finding{background:var(--card); border:1px solid var(--line); padding:1rem 1.15rem; display:grid; grid-template-columns:2.2rem 1fr; gap:.9rem; box-shadow:var(--shadow)}
+.finding .fnum{font-family:var(--display); font-stretch:75%; font-weight:700; font-size:1.5rem; color:var(--brass); line-height:1.2; font-variant-numeric:tabular-nums}
+.finding h3{font-size:1rem; margin-bottom:.25rem}
+.finding p{font-size:.94rem; color:var(--ink-2)}
+.finding code{font-family:var(--mono); font-size:.86rem; background:var(--card-2); padding:.05rem .3rem; border:1px solid var(--line)}
+
+.tips{list-style:none; margin:0; padding:0; display:grid; gap:.5rem}
+.tips li{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--brass); padding:.7rem .95rem; font-size:.95rem}
+.tips b{color:var(--ink)}
+
+/* ---------- tracker ---------- */
+.trackwrap{overflow-x:auto; padding-bottom:.2rem}
+.track{display:grid; grid-template-columns:auto repeat(7,minmax(1.5rem,1fr)) 4.4rem; gap:.3rem;
+  min-width:23rem; max-width:37rem; align-items:center}
+.track .hd{font-family:var(--display); font-stretch:87.5%; font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); text-align:center}
+.track .hd.wide{letter-spacing:.03em}
+.track .rw{font-family:var(--display); font-stretch:87.5%; font-size:.78rem; color:var(--muted); padding-right:.4rem; white-space:nowrap}
+.track input[type="checkbox"]{appearance:none; -webkit-appearance:none; width:100%; aspect-ratio:1; margin:0;
+  border:1px solid var(--line); background:var(--card); cursor:pointer; border-radius:2px}
+.track input[type="checkbox"]:hover{border-color:var(--brass)}
+.track input[type="checkbox"]:checked{background:var(--brass); border-color:var(--brass)}
+.track input[type="number"]{width:100%; margin:0; padding:.28rem .2rem; text-align:center;
+  font-family:var(--display); font-stretch:87.5%; font-size:.85rem; font-variant-numeric:tabular-nums;
+  color:var(--ink); background:var(--card); border:1px solid var(--line); border-radius:2px;
+  -moz-appearance:textfield}
+.track input[type="number"]::-webkit-inner-spin-button,
+.track input[type="number"]::-webkit-outer-spin-button{-webkit-appearance:none; margin:0}
+.track input[type="number"]:hover{border-color:var(--brass)}
+.track input[type="number"].hit{border-color:var(--brass); background:var(--brass-soft); color:var(--brass); font-weight:700}
+.track input:focus-visible{outline:2px solid var(--brass); outline-offset:2px}
+
+.statrow{display:grid; grid-template-columns:repeat(auto-fit,minmax(6.5rem,1fr)); gap:1px;
+  background:var(--line); border:1px solid var(--line); margin-top:1.35rem}
+.kpi{background:var(--card-2); padding:.6rem .75rem}
+.kpi b{display:block; font-family:var(--display); font-stretch:75%; font-weight:700; font-size:1.75rem;
+  line-height:1.15; color:var(--brass); font-variant-numeric:tabular-nums}
+.kpi b.sm{font-size:1rem; line-height:2}
+.kpi span{font-size:.75rem; color:var(--muted)}
+.chartwrap{margin-top:1.35rem}
+.chartwrap svg{display:block; width:100%; height:auto; color:var(--ink)}
+.chartempty{font-size:.85rem; color:var(--muted); border:1px dashed var(--line); padding:1rem; text-align:center}
+.btnrow{display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.35rem}
+.btn{font-family:var(--display); font-stretch:87.5%; font-size:.78rem; letter-spacing:.06em; text-transform:uppercase;
+  font-weight:600; padding:.45rem .9rem; background:var(--card-2); color:var(--ink-2);
+  border:1px solid var(--line); cursor:pointer}
+.btn:hover{border-color:var(--brass); color:var(--brass)}
+.btn:focus-visible{outline:2px solid var(--brass); outline-offset:2px}
+.btn.danger:hover{border-color:#C0453A; color:#C0453A}
+.tracknote{font-size:.8rem; color:var(--muted); margin-top:.7rem; max-width:52ch}
+.tracknote.err{color:#C0453A}
+
+footer{margin-top:3.5rem; padding-top:1.2rem; border-top:2px solid var(--rail); font-size:.82rem; color:var(--muted)}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{padding:1.75rem 1rem 3rem}
+  .week{grid-template-columns:2.5rem 1fr; gap:.75rem}
+  .week::before{left:1.22rem}
+  .fret{width:2.1rem; height:2.1rem; font-size:1.1rem}
+  .barrow{grid-template-columns:3.75rem 1fr; gap:.5rem}
+  .finding{grid-template-columns:1.75rem 1fr; gap:.6rem}
+}
+@media (prefers-reduced-motion:no-preference){
+  .wk-body,.chordcard,.finding{transition:border-color .15s ease}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="masthead-top">
+    <div>
+      <div class="eyebrow">แผน 8 สัปดาห์ · 15–30 นาที/วัน</div>
+      <h1>ตารางฝึกกีตาร์โปร่ง<br>สำหรับมือใหม่</h1>
+    </div>
+    <button class="theme-btn" id="themeBtn" type="button">สลับธีม</button>
+  </div>
+  <p class="lede">เริ่มจากศูนย์ → <span class="tint">เล่นเพลงเต็มเพลงได้</span> หน้านี้คือตารางต้นฉบับ บวกกับส่วนที่วิเคราะห์เพิ่ม: รูปคอร์ดจริง แพตเทิร์นจังหวะ และจุดที่ตัวเลขในแผนไม่ลงตัว</p>
+  <div class="stats">
+    <div class="stat"><b>8</b><span>สัปดาห์</span></div>
+    <div class="stat"><b>56</b><span>วันฝึก</span></div>
+    <div class="stat"><b>8</b><span>คอร์ด</span></div>
+    <div class="stat"><b>2</b><span>เพลงเต็ม</span></div>
+    <div class="stat"><b>5</b><span>ช่วงต่อวัน</span></div>
+  </div>
+</header>
+
+<section id="day">
+  <div class="sec-head">
+    <div class="eyebrow">ส่วนที่ 1</div>
+    <h2>หนึ่งวันฝึกอะไรบ้าง</h2>
+    <span class="note">ลำดับสำคัญ — อุ่นมือก่อนเสมอ ปิดท้ายด้วยของที่เล่นได้ดี</span>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr>
+          <th>ช่วง</th><th>ทำอะไร</th><th style="text-align:right">ต้นฉบับ</th>
+          <th style="text-align:right">15 นาที</th><th style="text-align:right">30 นาที</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="stage"><i class="dot" style="background:var(--seg1)"></i>1 · อุ่นมือ</span></td>
+          <td>ยืดนิ้ว แล้วไล่นิ้วบนสาย เฟรต 1-2-3-4 ทีละสาย</td>
+          <td class="num orig">3–5</td><td class="num">2</td><td class="num">4</td>
+        </tr>
+        <tr>
+          <td><span class="stage"><i class="dot" style="background:var(--seg2)"></i>2 · ฝึกคอร์ด</span></td>
+          <td>จับคอร์ดใหม่ + ฝึกสลับคอร์ดของสัปดาห์นั้น <em>(ช่วงที่ให้ผลมากที่สุด)</em></td>
+          <td class="num orig">7–10</td><td class="num">6</td><td class="num">10</td>
+        </tr>
+        <tr>
+          <td><span class="stage"><i class="dot" style="background:var(--seg3)"></i>3 · จังหวะโยกมือ</span></td>
+          <td>ฝึก strumming pattern ที่กำหนดของสัปดาห์นั้น</td>
+          <td class="num orig">5–7</td><td class="num">3</td><td class="num">6</td>
+        </tr>
+        <tr>
+          <td><span class="stage"><i class="dot" style="background:var(--seg4)"></i>4 · เล่นเพลงจริง</span></td>
+          <td>เอาคอร์ด + จังหวะที่ฝึก ไปเล่นกับเพลงจริง</td>
+          <td class="num orig">5–8</td><td class="num">4</td><td class="num">8</td>
+        </tr>
+        <tr>
+          <td><span class="stage"><i class="dot" style="background:var(--seg5)"></i>5 · คูลดาวน์</span></td>
+          <td>เล่นท่อนที่ถนัดที่สุดวันนี้ให้เพลินๆ ปิดท้ายด้วยความรู้สึกดี</td>
+          <td class="num orig">2</td><td class="num">—</td><td class="num">2</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="bars">
+    <div class="barrow">
+      <div class="barlabel">15 นาที</div>
+      <div class="bar" role="img" aria-label="สัดส่วนเวลาโหมดสั้น: อุ่นมือ 2 คอร์ด 6 จังหวะ 3 เล่นเพลง 4 นาที">
+        <span style="flex:2;background:var(--seg1);color:var(--seg1-fg)">2</span>
+        <span style="flex:6;background:var(--seg2);color:var(--seg2-fg)">6</span>
+        <span style="flex:3;background:var(--seg3);color:var(--seg3-fg)">3</span>
+        <span style="flex:4;background:var(--seg4);color:var(--seg4-fg)">4</span>
+      </div>
+    </div>
+    <div class="barrow">
+      <div class="barlabel">30 นาที</div>
+      <div class="bar" role="img" aria-label="สัดส่วนเวลาโหมดเต็ม: อุ่นมือ 4 คอร์ด 10 จังหวะ 6 เล่นเพลง 8 คูลดาวน์ 2 นาที">
+        <span style="flex:4;background:var(--seg1);color:var(--seg1-fg)">4</span>
+        <span style="flex:10;background:var(--seg2);color:var(--seg2-fg)">10</span>
+        <span style="flex:6;background:var(--seg3);color:var(--seg3-fg)">6</span>
+        <span style="flex:8;background:var(--seg4);color:var(--seg4-fg)">8</span>
+        <span style="flex:2;background:var(--seg5);color:var(--seg5-fg)">2</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="weeks">
+  <div class="sec-head">
+    <div class="eyebrow">ส่วนที่ 2</div>
+    <h2>เส้นทาง 8 สัปดาห์</h2>
+    <span class="note">จุดทองเหลือง = สัปดาห์วัดผล</span>
+  </div>
+
+  <div class="weeks">
+    <div class="week">
+      <div class="fret">1</div>
+      <div class="wk-body">
+        <div class="wk-title"><h3>ทำความรู้จักกีตาร์</h3></div>
+        <div class="chips"><span class="chip new">Em</span><span class="chip new">Am</span></div>
+        <ul>
+          <li>ท่านั่ง ท่าจับกีตาร์ ตำแหน่งมือซ้าย-ขวาที่ถูกต้อง</li>
+          <li>ดีดสายเปล่าทีละสายให้เสียงใส ไม่มีเสียงบอด</li>
+          <li>Em และ Am ใช้แค่ 2 นิ้ว จับง่ายที่สุดในบรรดาคอร์ดทั้งหมด</li>
+        </ul>
+        <p class="goal"><b>เป้าหมายปลายสัปดาห์</b>จับ Em และ Am ให้เสียงใสครบ 6 สาย</p>
+      </div>
+    </div>
+
+    <div class="week">
+      <div class="fret">2</div>
+      <div class="wk-body">
+        <div class="wk-title"><h3>เพิ่มคอร์ดและจังหวะแรก</h3></div>
+        <div class="chips"><span class="chip">Em</span><span class="chip">Am</span><span class="chip new">C</span><span class="chip new">G</span></div>
+        <ul>
+          <li>ฝึกสลับ Em → Am ให้เนียนขึ้น โดยใช้เมโทรนอมช้าๆ</li>
+          <li>จังหวะ: ตีลงสม่ำเสมอ 4 จังหวะ (↓ ↓ ↓ ↓)</li>
+          <li>เริ่มใช้เมโทรนอมตั้งแต่สัปดาห์นี้เป็นต้นไป</li>
+        </ul>
+        <p class="goal"><b>เป้าหมาย</b>สลับ 2 คอร์ดได้โดยไม่มีจังหวะสะดุด</p>
+      </div>
+    </div>
+
+    <div class="week">
+      <div class="fret">3</div>
+      <div class="wk-body">
+        <div class="wk-title"><h3>คอร์ดที่ 5 และเพลงแรก</h3><span class="badge">สัปดาห์หนักสุด</span></div>
+        <div class="chips"><span class="chip">Em</span><span class="chip">Am</span><span class="chip">C</span><span class="chip">G</span><span class="chip new">D</span></div>
+        <ul>
+          <li>เริ่มเล่นเพลงง่ายที่ใช้แค่ 3 คอร์ด เช่น Em-C-G หรือ G-C-D — เลือกเพลงโปรดที่มีแค่ 3 คอร์ดนี้จากเว็บคอร์ดกีตาร์</li>
+          <li>จังหวะ: เริ่มผสมตีลง-ตีขึ้น (↓ ↓↑ ↑↓↑)</li>
+          <li>ตัวเลือก: เริ่มแทรกสเกล Pentatonic ในช่วงอุ่นมือได้ตั้งแต่สัปดาห์นี้</li>
+        </ul>
+        <p class="goal"><b>ข้อสังเกต</b>สัปดาห์นี้เพิ่มของใหม่พร้อมกัน 3 อย่าง — คอร์ด D, จังหวะแบบผสม และเพลงแรก ถ้ารู้สึกตัน ให้ยืดเป็น 2 สัปดาห์ ไม่ใช่ความล้มเหลว</p>
+      </div>
+    </div>
+
+    <div class="week mark">
+      <div class="fret">4</div>
+      <div class="wk-body">
+        <div class="wk-title"><h3>เพลงเต็มเพลงแรก</h3><span class="badge">จุดตรวจ</span></div>
+        <div class="chips"><span class="chip">Em</span><span class="chip">Am</span><span class="chip">C</span><span class="chip">G</span><span class="chip">D</span></div>
+        <ul>
+          <li>ทบทวนคอร์ดทั้ง 5 ให้คล่อง — สัปดาห์นี้ไม่มีคอร์ดใหม่ ใช้เวลาไล่ของเก่าให้แน่น</li>
+          <li>ฝึกจังหวะที่ซับซ้อนขึ้นให้เข้ากับเพลงที่เลือก</li>
+        </ul>
+        <p class="goal"><b>เป้าหมาย</b>เล่นเพลงแรกได้เต็มเพลง แม้จะยังไม่ลื่นไหล 100%</p>
+      </div>
+    </div>
+
+    <div class="week">
+      <div class="fret">5</div>
+      <div class="wk-body">
+        <div class="wk-title"><h3>เพิ่มคอร์ดใหม่</h3></div>
+        <div class="chips"><span class="chip">Em</span><span class="chip">Am</span><span class="chip">C</span><span class="chip">G</span><span class="chip">D</span><span class="chip new">A</span><span class="chip new">E</span></div>
+        <ul>
+          <li>ฝึกจับเวลาสลับคอร์ด ตั้งเป้าสลับให้ทันภายใน 1 จังหวะ</li>
+          <li>เริ่มเลือกเพลงที่ 2 โดยใช้คอร์ดที่มีอยู่ทั้งหมด</li>
+        </ul>
+        <p class="goal"><b>ข้อดีของสัปดาห์นี้</b>A และ E ใช้รูปนิ้วใกล้เคียงกับ Am และ Em ที่เล่นได้แล้ว จึงเรียนรู้เร็วกว่าที่คิด</p>
+      </div>
+    </div>
+
+    <div class="week">
+      <div class="fret">6</div>
+      <div class="wk-body">
+        <div class="wk-title"><h3>จังหวะและเพลงที่ 2</h3></div>
+        <div class="chips"><span class="chip">7 คอร์ดเดิม</span></div>
+        <ul>
+          <li>ฝึกจังหวะใหม่ให้เข้ากับเพลงที่ 2</li>
+          <li>ถ้าสนใจ: เริ่มลองฝึก fingerpicking แบบง่าย ดีดทีละสายแทนการตีรวม (เป็นตัวเลือกเสริม)</li>
+          <li>ถ้าฝึกสเกลอยู่ สัปดาห์นี้เริ่มด้นสดทับคอร์ด Em, Am ได้</li>
+        </ul>
+        <p class="goal"><b>เป้าหมาย</b>เล่นเพลงที่ 2 ได้คร่าวๆ ทั้งเพลง</p>
+      </div>
+    </div>
+
+    <div class="week">
+      <div class="fret">7</div>
+      <div class="wk-body">
+        <div class="wk-title"><h3>ก้าวข้ามคอร์ดยาก</h3><span class="badge">ด่านที่คนเลิกเยอะสุด</span></div>
+        <div class="chips"><span class="chip">7 คอร์ดเดิม</span><span class="chip new">F แบบง่าย</span></div>
+        <ul>
+          <li>F แบบง่าย ใช้ partial barre แค่ 2 สายบนก็พอสำหรับเริ่มต้น ยังไม่ต้องบาร์เต็ม 6 สาย</li>
+          <li>ฝึกเพลงที่ 2 ให้ลื่นไหลขึ้น</li>
+          <li>ทบทวนเพลงที่ 1 ควบคู่ไปด้วยเพื่อไม่ให้ลืม</li>
+        </ul>
+        <p class="goal"><b>ข้อสังเกต</b>F คือจุดที่มือใหม่เลิกเล่นมากที่สุด แผนนี้วางไว้ท้ายๆ อย่างถูกต้อง — ตอนนิ้วแข็งแรงพอแล้ว</p>
+      </div>
+    </div>
+
+    <div class="week mark">
+      <div class="fret">8</div>
+      <div class="wk-body">
+        <div class="wk-title"><h3>รวบยอด</h3><span class="badge">จุดตรวจ</span></div>
+        <div class="chips"><span class="chip">8 คอร์ดครบ</span></div>
+        <ul>
+          <li>เล่น 2-3 เพลงเต็มที่ฝึกมาให้ต่อเนื่อง ไม่หยุดกลางเพลง</li>
+          <li>อัดคลิปตัวเองเล่น เทียบกับสัปดาห์แรกดูพัฒนาการ</li>
+          <li>วางแผนต่อยอด: เลือกจะไปทาง fingerstyle, ร้อง+เล่นไปด้วย, หรือเรียนทฤษฎีเพิ่ม</li>
+        </ul>
+        <p class="goal"><b>เคล็ดลับ</b>อัดคลิปตั้งแต่วันแรกของสัปดาห์ที่ 1 ด้วย ไม่งั้นถึงสัปดาห์ที่ 8 จะไม่มีอะไรให้เทียบ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="chords">
+  <div class="sec-head">
+    <div class="eyebrow">ส่วนที่ 3</div>
+    <h2>คลังคอร์ดทั้ง 8</h2>
+    <span class="note">× = ไม่ดีดสายนี้ · ○ = ดีดสายเปล่า · ตัวเลขในจุด = นิ้วที่ใช้</span>
+  </div>
+  <div class="chordgrid" id="chordgrid"></div>
+  <p class="prose" style="margin-top:.9rem;font-size:.9rem">นิ้ว 1 = ชี้, 2 = กลาง, 3 = นาง, 4 = ก้อย · สายซ้ายสุดคือสาย 6 (E ต่ำ) ขวาสุดคือสาย 1 (e สูง)</p>
+</section>
+
+<section id="strum">
+  <div class="sec-head">
+    <div class="eyebrow">ส่วนที่ 4</div>
+    <h2>จังหวะโยกมือ</h2>
+    <span class="note">นับ 1 &amp; 2 &amp; 3 &amp; 4 &amp; ดังๆ ระหว่างฝึก</span>
+  </div>
+  <div class="card pad strum">
+    <div class="pattern">
+      <div class="ptitle"><b>แพตเทิร์นที่ 1 — สัปดาห์ที่ 2</b><span>ตีลงสม่ำเสมอ 4 ครั้ง</span></div>
+      <div class="beats">
+        <div class="beat d"><span class="cnt">1</span><span class="arr">↓</span></div>
+        <div class="beat"><span class="cnt">&amp;</span><span class="arr">·</span></div>
+        <div class="beat d"><span class="cnt">2</span><span class="arr">↓</span></div>
+        <div class="beat"><span class="cnt">&amp;</span><span class="arr">·</span></div>
+        <div class="beat d"><span class="cnt">3</span><span class="arr">↓</span></div>
+        <div class="beat"><span class="cnt">&amp;</span><span class="arr">·</span></div>
+        <div class="beat d"><span class="cnt">4</span><span class="arr">↓</span></div>
+        <div class="beat"><span class="cnt">&amp;</span><span class="arr">·</span></div>
+      </div>
+    </div>
+    <div class="pattern">
+      <div class="ptitle"><b>แพตเทิร์นที่ 2 — สัปดาห์ที่ 3 เป็นต้นไป</b><span>↓ ↓↑ ↑↓↑ — มือขวาต้องแกว่งครบทุกจังหวะ แต่ไม่โดนสายทุกครั้ง</span></div>
+      <div class="beats">
+        <div class="beat d"><span class="cnt">1</span><span class="arr">↓</span></div>
+        <div class="beat"><span class="cnt">&amp;</span><span class="arr">·</span></div>
+        <div class="beat d"><span class="cnt">2</span><span class="arr">↓</span></div>
+        <div class="beat u"><span class="cnt">&amp;</span><span class="arr">↑</span></div>
+        <div class="beat"><span class="cnt">3</span><span class="arr">·</span></div>
+        <div class="beat u"><span class="cnt">&amp;</span><span class="arr">↑</span></div>
+        <div class="beat d"><span class="cnt">4</span><span class="arr">↓</span></div>
+        <div class="beat u"><span class="cnt">&amp;</span><span class="arr">↑</span></div>
+      </div>
+    </div>
+    <p class="prose" style="font-size:.9rem">ช่องว่างที่จังหวะ 3 คือหัวใจของแพตเทิร์นนี้ — มือยังแกว่งลงอยู่ แต่ไม่ให้โดนสาย ถ้าหยุดมือจริงๆ จังหวะจะเสียทันที</p>
+  </div>
+</section>
+
+<section id="pentatonic">
+  <div class="sec-head">
+    <div class="eyebrow">ส่วนเสริม · ไม่บังคับ</div>
+    <h2>สเกล A Minor Pentatonic</h2>
+  </div>
+  <div class="alt">
+    <h3>สำหรับคนอยากได้พื้นฐานแน่นขึ้น</h3>
+    <p style="font-size:.95rem">แทรกช่วงนี้ 3-5 นาทีในขั้นตอน "อุ่นมือ" ตั้งแต่สัปดาห์ที่ 3 เป็นต้นไป ตำแหน่งแรกอยู่บริเวณเฟรต 5</p>
+    <div class="fretboard" id="scaleboard"></div>
+    <ul>
+      <li>ไล่ขึ้น-ลงช้าๆ ทีละโน้ตให้เสียงใส เป้าหมายไม่ใช่ความเร็ว แต่ให้หูจำเสียงและนิ้วรู้ตำแหน่ง</li>
+      <li>จุดทึบคือโน้ต A (โน้ตหลักของสเกล) — เริ่มและจบที่จุดนี้ หูจะจับทางได้เร็วขึ้น</li>
+      <li>สัปดาห์ที่ 6-7 ลองด้นสดง่ายๆ ทับคอร์ดที่เล่นได้แล้ว เช่น Em, Am จะเริ่มเห็นว่าสเกลเชื่อมกับเพลงที่เล่นอยู่ยังไง</li>
+    </ul>
+  </div>
+</section>
+
+<section id="analysis">
+  <div class="sec-head">
+    <div class="eyebrow">ส่วนที่ 5</div>
+    <h2>วิเคราะห์ตารางนี้</h2>
+    <span class="note">ส่วนนี้เพิ่มจากต้นฉบับ</span>
+  </div>
+  <div class="findings">
+    <div class="finding">
+      <div class="fnum">1</div>
+      <div>
+        <h3>ตัวเลขเวลาในตารางเดิมไม่ลงตัว</h3>
+        <p>ถ้าทำครบทุกช่วงแบบเต็มเพดาน จะได้ <code>5+10+7+8+2 = 32 นาที</code> เกิน 30 ที่ตั้งไว้ และโหมดสั้นตามที่เขียน (ตัดช่วง 5 + ลดช่วง 3-4 เหลือ 4-5 นาที) รวมได้ <code>18–25 นาที</code> ไม่ใช่ 15 — ตัวเลขในคอลัมน์ "15 นาที" และ "30 นาที" ด้านบนคือตัวเลขที่ปรับให้รวมได้พอดีแล้ว</p>
+      </div>
+    </div>
+    <div class="finding">
+      <div class="fnum">2</div>
+      <div>
+        <h3>สัปดาห์ที่ 3 คือคอขวดที่แท้จริง ไม่ใช่สัปดาห์ที่ 7</h3>
+        <p>สัปดาห์ที่ 3 เพิ่มของใหม่พร้อมกัน 3 อย่าง — คอร์ด D (นิ้วเรียงแบบใหม่หมด), จังหวะตีขึ้น-ลงผสม และเพลงจริงเพลงแรก ขณะที่สัปดาห์อื่นเพิ่มอย่างละ 1-2 อย่าง ถ้าจะยืดแผนที่ไหน ให้ยืดตรงนี้</p>
+      </div>
+    </div>
+    <div class="finding">
+      <div class="fnum">3</div>
+      <div>
+        <h3>โหลดคอร์ดสะสมกระโดดเป็นขั้น ไม่ใช่เส้นตรง</h3>
+        <p>ไล่ตามสัปดาห์: <code>2 → 4 → 5 → 5 → 7 → 7 → 8 → 8</code> จะเห็นว่าสัปดาห์ที่ 4, 6, 8 ไม่มีคอร์ดใหม่เลย — ถูกออกแบบให้เป็นสัปดาห์ย่อยของเก่า อย่าเผลอเร่งอ่านข้ามไป เพราะนั่นคือสัปดาห์ที่ทำให้ของเดิมติดมือจริง</p>
+      </div>
+    </div>
+    <div class="finding">
+      <div class="fnum">4</div>
+      <div>
+        <h3>แผนไม่มีตัวชี้วัดที่วัดได้จริง</h3>
+        <p>เป้าหมายอย่าง "สลับคอร์ดไม่สะดุด" วัดยาก แนะนำให้เพิ่มการทดสอบง่ายๆ: จับเวลา 1 นาที นับว่าสลับ Em ↔ Am ได้กี่ครั้ง จดไว้ทุกสัปดาห์ เกณฑ์คร่าวๆ คือสัปดาห์ที่ 2 ราว 20 ครั้ง, สัปดาห์ที่ 4 ราว 40 ครั้ง, สัปดาห์ที่ 8 ราว 60 ครั้ง — <b>จดตัวเลขนี้ได้ในตารางบันทึกการฝึก (ส่วนที่ 7) แล้วดูกราฟเทียบกับเกณฑ์</b></p>
+      </div>
+    </div>
+    <div class="finding">
+      <div class="fnum">5</div>
+      <div>
+        <h3>ตารางเขียนแบบฝึกทุกวัน แต่ไม่ได้บอกว่าห้ามพัก</h3>
+        <p>เคล็ดลับในตารางบอกว่าอย่าหยุดเกิน 2-3 วันติด แปลว่าฝึก 6 วัน/สัปดาห์ แล้วเหลืออีก 1 วันเป็นวันเบา (เล่นเพลงที่ชอบอย่างเดียว ไม่ต้องซ้อมอะไร) ยังอยู่ในกรอบของแผน และทำให้ฝึกครบ 8 สัปดาห์ได้จริงมากกว่า</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tips">
+  <div class="sec-head">
+    <div class="eyebrow">ส่วนที่ 6</div>
+    <h2>เคล็ดลับให้ฝึกได้ผลจริง</h2>
+  </div>
+  <ul class="tips">
+    <li><b>ฝึกทุกวันสำคัญกว่าฝึกนาน</b> — 15 นาทีทุกวัน ดีกว่า 2 ชั่วโมงสัปดาห์ละครั้ง</li>
+    <li><b>จูนกีตาร์ทุกครั้งก่อนฝึก</b> ใช้แอพจูนเนอร์ฟรีในมือถือ กีตาร์เพี้ยนทำให้หูจำเสียงผิด</li>
+    <li><b>นิ้วเจ็บช่วงแรกเป็นเรื่องปกติ</b> มีรอยด้านได้ พักได้ถ้าเจ็บมาก แต่อย่าหยุดฝึกเกิน 2-3 วันติด</li>
+    <li><b>ใช้เมโทรนอมตั้งแต่สัปดาห์ที่ 2</b> เป็นต้นไป จะช่วยเรื่องจังหวะมาก</li>
+    <li><b>คอร์ดไหนจับยากเป็นพิเศษ</b> ให้แยกฝึกคอร์ดนั้นเดี่ยวๆ เพิ่ม 2-3 นาทีนอกตาราง</li>
+  </ul>
+</section>
+
+<section id="tracker">
+  <div class="sec-head">
+    <div class="eyebrow">ส่วนที่ 7</div>
+    <h2>บันทึกการฝึก</h2>
+    <span class="note">ติ๊กแล้วระบบจำวันที่ให้เอง</span>
+  </div>
+  <div class="card pad">
+    <div class="trackwrap"><div class="track" id="track"></div></div>
+    <p class="tracknote">ช่องขวาสุด = ผลทดสอบสลับคอร์ด <b>Em ↔ Am ใน 1 นาที ได้กี่ครั้ง</b> ตัวเลขจางในช่องคือเกณฑ์เป้าหมายของสัปดาห์นั้น ทำถึงเกณฑ์แล้วช่องจะเปลี่ยนเป็นสีทองเหลือง · เอาเมาส์ชี้ที่ช่องติ๊กเพื่อดูวันที่ที่ฝึก</p>
+
+    <div class="statrow">
+      <div class="kpi"><b id="tcount">0</b><span>จาก 56 วัน · <span id="tpct">0%</span></span></div>
+      <div class="kpi"><b id="tstreak">0</b><span>วันติดต่อกัน</span></div>
+      <div class="kpi"><b id="tbest">0</b><span>สถิติต่อเนื่องสูงสุด</span></div>
+      <div class="kpi"><b id="tlast" class="sm">—</b><span>ฝึกล่าสุด</span></div>
+    </div>
+
+    <div class="chartwrap" id="chartwrap"></div>
+
+    <div class="btnrow">
+      <button class="btn" id="texport" type="button">ส่งออกข้อมูล</button>
+      <button class="btn" id="timport" type="button">นำเข้าข้อมูล</button>
+      <input type="file" id="tfile" accept="application/json,.json" hidden>
+      <button class="btn danger" id="treset" type="button">ล้างทั้งหมด</button>
+    </div>
+    <p class="tracknote" id="tmsg" role="status">ส่งออกจะได้ไฟล์ .json เก็บไว้ แล้วเอาไปนำเข้าที่เครื่องอื่นหรือเบราว์เซอร์อื่นได้</p>
+  </div>
+</section>
+
+<footer>
+  <p>สร้างจากไฟล์ <code>ตารางฝึกกีตาร์มือใหม่.md.txt</code> · เนื้อหาตารางเป็นของต้นฉบับ ส่วน "วิเคราะห์ตารางนี้" รูปคอร์ด แผนภาพจังหวะ และบันทึกการฝึก เป็นส่วนที่เพิ่มเข้ามา</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---- theme toggle ---- */
+  var root=document.documentElement, btn=document.getElementById("themeBtn");
+  var saved=null;
+  try{ saved=localStorage.getItem("gt8w:theme"); }catch(e){}
+  if(saved){ root.setAttribute("data-theme",saved); }
+  btn.addEventListener("click",function(){
+    var dark=root.getAttribute("data-theme")==="dark"
+      || (!root.getAttribute("data-theme") && matchMedia("(prefers-color-scheme:dark)").matches);
+    var next=dark?"light":"dark";
+    root.setAttribute("data-theme",next);
+    try{ localStorage.setItem("gt8w:theme",next); }catch(e){}
+  });
+
+  /* ---- chord diagrams ---- */
+  /* frets: -1 = ไม่ดีด, 0 = สายเปล่า | เรียงจากสาย 6 ถึงสาย 1 */
+  var CHORDS=[
+    {n:"Em", w:1, f:[0,2,2,0,0,0],  g:[0,2,3,0,0,0], hint:"ใช้แค่ 2 นิ้ว ดีดครบ 6 สาย"},
+    {n:"Am", w:1, f:[-1,0,2,2,1,0], g:[0,0,2,3,1,0], hint:"รูปเดียวกับ E เลื่อนลงมา 1 สาย"},
+    {n:"C",  w:2, f:[-1,3,2,0,1,0], g:[0,3,2,0,1,0], hint:"นิ้วกางกว้าง ค่อยๆ ฝึก"},
+    {n:"G",  w:2, f:[3,2,0,0,0,3],  g:[2,1,0,0,0,3], hint:"ดีดครบ 6 สาย เสียงหนาสุด"},
+    {n:"D",  w:3, f:[-1,-1,0,2,3,2],g:[0,0,0,1,3,2], hint:"ดีดแค่ 4 สายล่าง เป็นรูปสามเหลี่ยม"},
+    {n:"A",  w:5, f:[-1,0,2,2,2,0], g:[0,0,1,2,3,0], hint:"3 นิ้วเรียงกันในเฟรตเดียว"},
+    {n:"E",  w:5, f:[0,2,2,1,0,0],  g:[0,2,3,1,0,0], hint:"เหมือน Am เลื่อนขึ้น 1 สาย"},
+    {n:"F",  w:7, f:[-1,-1,3,2,1,1],g:[0,0,3,2,1,1], barre:{fret:1,from:4,to:5}, hint:"แบบง่าย บาร์แค่ 2 สายบน"}
+  ];
+
+  function svgEl(t,a){
+    var e=document.createElementNS("http://www.w3.org/2000/svg",t);
+    for(var k in a){ e.setAttribute(k,a[k]); }
+    return e;
+  }
+
+  function chordSVG(c){
+    var W=110,H=124,padL=17,padT=30,sw=(W-padL*2)/5,fh=19,frets=4;
+    var svg=svgEl("svg",{viewBox:"0 0 "+W+" "+H,width:W,height:H,role:"img"});
+    svg.appendChild(svgEl("title",{})).textContent="รูปคอร์ด "+c.n;
+
+    /* นัต */
+    svg.appendChild(svgEl("rect",{x:padL,y:padT-3,width:sw*5,height:3.5,fill:"currentColor"}));
+    var i,f;
+    for(f=1;f<=frets;f++){
+      svg.appendChild(svgEl("line",{x1:padL,y1:padT+f*fh,x2:padL+sw*5,y2:padT+f*fh,
+        stroke:"currentColor","stroke-width":1,opacity:.3}));
+    }
+    for(i=0;i<6;i++){
+      svg.appendChild(svgEl("line",{x1:padL+i*sw,y1:padT,x2:padL+i*sw,y2:padT+frets*fh,
+        stroke:"currentColor","stroke-width":1,opacity:.4}));
+    }
+
+    /* × / ○ เหนือนัต */
+    for(i=0;i<6;i++){
+      var x=padL+i*sw, v=c.f[i];
+      if(v===-1){
+        svg.appendChild(svgEl("path",{d:"M"+(x-3.2)+" "+(padT-13)+"l6.4 6.4M"+(x+3.2)+" "+(padT-13)+"l-6.4 6.4",
+          stroke:"currentColor","stroke-width":1.4,opacity:.55,fill:"none","stroke-linecap":"round"}));
+      }else if(v===0){
+        svg.appendChild(svgEl("circle",{cx:x,cy:padT-9.6,r:3.2,fill:"none",stroke:"currentColor","stroke-width":1.4,opacity:.55}));
+      }
+    }
+
+    /* บาร์ */
+    if(c.barre){
+      var bx=padL+c.barre.from*sw, bw=(c.barre.to-c.barre.from)*sw;
+      svg.appendChild(svgEl("rect",{x:bx-6,y:padT+(c.barre.fret-1)*fh+3.5,width:bw+12,height:fh-7,
+        rx:(fh-7)/2,fill:"var(--brass)"}));
+    }
+
+    /* จุดนิ้ว */
+    for(i=0;i<6;i++){
+      var fr=c.f[i];
+      if(fr>0){
+        var cx=padL+i*sw, cy=padT+(fr-0.5)*fh;
+        var inBarre=c.barre && fr===c.barre.fret && i>=c.barre.from && i<=c.barre.to;
+        if(!inBarre){
+          svg.appendChild(svgEl("circle",{cx:cx,cy:cy,r:6.4,fill:"var(--brass)"}));
+        }
+        if(c.g[i]>0){
+          var t=svgEl("text",{x:cx,y:cy+3.6,"text-anchor":"middle","font-size":"9",
+            "font-weight":"700",fill:"var(--paper)","font-family":"var(--display)"});
+          t.textContent=c.g[i];
+          svg.appendChild(t);
+        }
+      }
+    }
+    return svg;
+  }
+
+  var grid=document.getElementById("chordgrid");
+  CHORDS.forEach(function(c){
+    var d=document.createElement("div");
+    d.className="chordcard";
+    d.innerHTML='<div class="cname">'+c.n+'</div><div class="cwk">สัปดาห์ที่ '+c.w+'</div>';
+    d.appendChild(chordSVG(c));
+    var h=document.createElement("div");
+    h.className="chint"; h.textContent=c.hint;
+    d.appendChild(h);
+    grid.appendChild(d);
+  });
+
+  /* ---- fretboard: A minor pentatonic ตำแหน่งแรก ---- */
+  (function(){
+    var notes=[[0,5,1],[0,8,0],[1,5,0],[1,7,0],[2,5,0],[2,7,1],[3,5,0],[3,7,0],[4,5,0],[4,8,0],[5,5,1],[5,8,0]];
+    var padL=34,padT=20,fw=54,sh=17,first=5,last=8;
+    var W=padL+(last-first+1)*fw+14, H=padT+5*sh+22;
+    var svg=svgEl("svg",{viewBox:"0 0 "+W+" "+H,width:W,height:H,role:"img"});
+    svg.appendChild(svgEl("title",{})).textContent="แผนภาพสเกล A minor pentatonic เฟรต 5 ถึง 8";
+    var i,fr,t;
+    for(i=0;i<6;i++){
+      svg.appendChild(svgEl("line",{x1:padL,y1:padT+i*sh,x2:padL+(last-first+1)*fw,y2:padT+i*sh,
+        stroke:"currentColor","stroke-width":1,opacity:.35}));
+    }
+    for(fr=0;fr<=last-first+1;fr++){
+      svg.appendChild(svgEl("line",{x1:padL+fr*fw,y1:padT,x2:padL+fr*fw,y2:padT+5*sh,
+        stroke:"currentColor","stroke-width":fr===0?2:1,opacity:fr===0?.7:.3}));
+    }
+    ["E","A","D","G","B","e"].forEach(function(s,idx){
+      t=svgEl("text",{x:padL-10,y:padT+idx*sh+4,"text-anchor":"end","font-size":"10",
+        fill:"currentColor",opacity:.6,"font-family":"var(--mono)"});
+      t.textContent=s; svg.appendChild(t);
+    });
+    for(fr=first;fr<=last;fr++){
+      t=svgEl("text",{x:padL+(fr-first+0.5)*fw,y:H-6,"text-anchor":"middle","font-size":"10",
+        fill:"currentColor",opacity:.55,"font-family":"var(--display)"});
+      t.textContent=fr; svg.appendChild(t);
+    }
+    notes.forEach(function(n){
+      var cx=padL+(n[1]-first+0.5)*fw, cy=padT+n[0]*sh;
+      svg.appendChild(svgEl("circle",{cx:cx,cy:cy,r:6.5,
+        fill:n[2]?"var(--abalone)":"var(--card)",stroke:"var(--abalone)","stroke-width":1.6}));
+    });
+    document.getElementById("scaleboard").appendChild(svg);
+  })();
+
+  /* ---- ตัวบันทึกการฝึก ---- */
+  var KEY="gt8w:progress", track=document.getElementById("track");
+  var DAYS=["จ","อ","พ","พฤ","ศ","ส","อา"];
+  var THMON=["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค."];
+  /* เกณฑ์สลับคอร์ด Em↔Am ต่อนาที · ดัชนี = สัปดาห์ (สัปดาห์ 1 ยังไม่วัด) */
+  var TARGET=[0,0,20,30,40,45,50,55,60];
+  var boxes=[], nums=[], data=load();
+
+  function pad2(n){ return (n<10?"0":"")+n; }
+  function iso(dt){ return dt.getFullYear()+"-"+pad2(dt.getMonth()+1)+"-"+pad2(dt.getDate()); }
+  function thai(s){
+    var p=String(s).split("-");
+    if(p.length!==3) return "";
+    return Number(p[2])+" "+THMON[Number(p[1])-1]+" "+(Number(p[0])+543);
+  }
+  function daynum(s){ var p=s.split("-"); return Math.round(Date.UTC(+p[0],+p[1]-1,+p[2])/86400000); }
+
+  function load(){
+    var out={v:2,days:{},test:{}}, raw=null, p=null, k;
+    try{ raw=localStorage.getItem(KEY); }catch(e){}
+    if(!raw) return out;
+    try{ p=JSON.parse(raw); }catch(e){ return out; }
+    if(!p||typeof p!=="object") return out;
+    if(p.v===2){ out.days=p.days||{}; out.test=p.test||{}; return out; }
+    /* ข้อมูลรูปแบบเดิม {w1d1:true} — เก็บช่องที่ติ๊กไว้ แต่ไม่มีวันที่ย้อนหลัง */
+    for(k in p){ if(p[k]===true) out.days[k]=""; }
+    return out;
+  }
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(data)); }catch(e){} }
+  function msg(t,bad){
+    var el=document.getElementById("tmsg");
+    el.textContent=t; el.className="tracknote"+(bad?" err":"");
+  }
+  function cell(cls,txt){
+    var d=document.createElement("div"); d.className=cls; d.textContent=txt; return d;
+  }
+
+  /* สร้างตาราง */
+  track.appendChild(cell("hd",""));
+  DAYS.forEach(function(d){ track.appendChild(cell("hd",d)); });
+  track.appendChild(cell("hd wide","สลับ/นาที"));
+  for(var w=1;w<=8;w++){
+    track.appendChild(cell("rw","สัปดาห์ "+w));
+    for(var d=1;d<=7;d++){
+      var cb=document.createElement("input");
+      cb.type="checkbox"; cb.dataset.id="w"+w+"d"+d;
+      cb.setAttribute("aria-label","สัปดาห์ที่ "+w+" วันที่ "+d);
+      track.appendChild(cb); boxes.push(cb);
+    }
+    var ni=document.createElement("input");
+    ni.type="number"; ni.min="0"; ni.max="999"; ni.dataset.week=String(w);
+    ni.placeholder=TARGET[w]?String(TARGET[w]):"—";
+    ni.setAttribute("aria-label","ผลทดสอบสลับคอร์ดสัปดาห์ที่ "+w+" ครั้งต่อนาที");
+    track.appendChild(ni); nums.push(ni);
+  }
+
+  function stats(){
+    var n=0, seen={}, list=[], k, i;
+    for(k in data.days){
+      n++;
+      var v=data.days[k];
+      if(v&&!seen[v]){ seen[v]=1; list.push(v); }
+    }
+    list.sort();
+    var best=0, run=0;
+    for(i=0;i<list.length;i++){
+      run=(i>0 && daynum(list[i])-daynum(list[i-1])===1) ? run+1 : 1;
+      if(run>best) best=run;
+    }
+    var cur=0;
+    if(list.length && daynum(iso(new Date()))-daynum(list[list.length-1])<=1){ cur=run; }
+    document.getElementById("tcount").textContent=n;
+    document.getElementById("tpct").textContent=Math.round(n/56*100)+"%";
+    document.getElementById("tstreak").textContent=cur;
+    document.getElementById("tbest").textContent=best;
+    document.getElementById("tlast").textContent=list.length?thai(list[list.length-1]):"—";
+  }
+
+  function chart(){
+    var wrap=document.getElementById("chartwrap"), w, any=false;
+    wrap.innerHTML="";
+    for(w=1;w<=8;w++){ if(data.test[w]!==undefined && data.test[w]!=="") any=true; }
+    if(!any){
+      var e=document.createElement("div"); e.className="chartempty";
+      e.textContent="กรอกผลทดสอบในช่องขวาสุดของตาราง แล้วกราฟเทียบกับเกณฑ์จะขึ้นตรงนี้";
+      wrap.appendChild(e); return;
+    }
+    var W=560,H=172,padL=28,padR=10,padT=16,padB=30,maxY=70;
+    var iw=W-padL-padR, ih=H-padT-padB, t;
+    var svg=svgEl("svg",{viewBox:"0 0 "+W+" "+H,role:"img"});
+    svg.appendChild(svgEl("title",{})).textContent="กราฟผลทดสอบสลับคอร์ดรายสัปดาห์ เทียบกับเกณฑ์เป้าหมาย";
+    function px(k){ return padL+(k-0.5)*(iw/8); }
+    function py(v){ return padT+ih*(1-v/maxY); }
+
+    [0,20,40,60].forEach(function(v){
+      svg.appendChild(svgEl("line",{x1:padL,y1:py(v),x2:padL+iw,y2:py(v),
+        stroke:"currentColor","stroke-width":1,opacity:v===0?.35:.13}));
+      t=svgEl("text",{x:padL-6,y:py(v)+3.5,"text-anchor":"end","font-size":"9",
+        fill:"currentColor",opacity:.5,"font-family":"var(--display)"});
+      t.textContent=v; svg.appendChild(t);
+    });
+
+    var tp=[];
+    for(w=2;w<=8;w++){ tp.push(px(w)+","+py(TARGET[w])); }
+    svg.appendChild(svgEl("polyline",{points:tp.join(" "),fill:"none",stroke:"var(--abalone)",
+      "stroke-width":1.5,"stroke-dasharray":"4 4"}));
+
+    var pts=[], seg=[];
+    for(w=1;w<=8;w++){
+      var raw=data.test[w];
+      pts.push((raw===undefined||raw==="")?null:{w:w,v:Math.max(0,Math.min(maxY,Number(raw)))});
+    }
+    function flush(){
+      if(seg.length>1){
+        svg.appendChild(svgEl("polyline",{points:seg.join(" "),fill:"none",
+          stroke:"var(--brass)","stroke-width":2,"stroke-linejoin":"round"}));
+      }
+      seg=[];
+    }
+    pts.forEach(function(p){ if(p){ seg.push(px(p.w)+","+py(p.v)); } else { flush(); } });
+    flush();
+
+    pts.forEach(function(p){
+      if(!p) return;
+      var hit=TARGET[p.w] && p.v>=TARGET[p.w];
+      svg.appendChild(svgEl("circle",{cx:px(p.w),cy:py(p.v),r:4.5,
+        fill:hit?"var(--brass)":"var(--card)",stroke:"var(--brass)","stroke-width":2}));
+      var lt=svgEl("text",{x:px(p.w),y:py(p.v)-9,"text-anchor":"middle","font-size":"10",
+        "font-weight":"700",fill:"var(--brass)","font-family":"var(--display)"});
+      lt.textContent=p.v; svg.appendChild(lt);
+    });
+
+    for(w=1;w<=8;w++){
+      t=svgEl("text",{x:px(w),y:H-10,"text-anchor":"middle","font-size":"10",
+        fill:"currentColor",opacity:.55,"font-family":"var(--display)"});
+      t.textContent=w; svg.appendChild(t);
+    }
+    wrap.appendChild(svg);
+    var lg=document.createElement("p");
+    lg.className="tracknote";
+    lg.textContent="เส้นทึบ = ผลจริงของคุณ · เส้นประ = เกณฑ์เป้าหมาย · แกนนอน = สัปดาห์ที่ 1-8";
+    wrap.appendChild(lg);
+  }
+
+  function render(){
+    boxes.forEach(function(cb){
+      var v=data.days[cb.dataset.id], on=v!==undefined;
+      cb.checked=on;
+      cb.title=on ? (v ? "ฝึกวันที่ "+thai(v) : "ฝึกแล้ว (ข้อมูลเก่า ไม่มีวันที่)") : "ยังไม่ได้ฝึก";
+    });
+    nums.forEach(function(ni){
+      var w=ni.dataset.week, v=data.test[w], tg=TARGET[+w];
+      ni.value=(v===undefined||v===null)?"":v;
+      ni.className=(v!==undefined && tg && Number(v)>=tg)?"hit":"";
+    });
+    stats();
+    chart();
+  }
+
+  track.addEventListener("change",function(ev){
+    var el=ev.target;
+    if(el.type==="checkbox"){
+      if(el.checked){ data.days[el.dataset.id]=iso(new Date()); }
+      else{ delete data.days[el.dataset.id]; }
+    }else if(el.type==="number"){
+      var raw=el.value.trim();
+      if(raw===""){ delete data.test[el.dataset.week]; }
+      else{
+        var n=Math.round(Number(raw));
+        if(isNaN(n)) delete data.test[el.dataset.week];
+        else data.test[el.dataset.week]=Math.max(0,Math.min(999,n));
+      }
+    }else{ return; }
+    save(); render();
+  });
+
+  document.getElementById("texport").addEventListener("click",function(){
+    try{
+      var blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+      var url=URL.createObjectURL(blob);
+      var a=document.createElement("a");
+      a.href=url; a.download="guitar-progress-"+iso(new Date())+".json";
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(url); },2000);
+      msg("ส่งออกแล้ว ไฟล์อยู่ในโฟลเดอร์ดาวน์โหลด");
+    }catch(e){ msg("ส่งออกไม่สำเร็จในเบราว์เซอร์นี้",true); }
+  });
+
+  var fileEl=document.getElementById("tfile");
+  document.getElementById("timport").addEventListener("click",function(){ fileEl.click(); });
+  fileEl.addEventListener("change",function(){
+    var f=fileEl.files&&fileEl.files[0];
+    if(!f) return;
+    var r=new FileReader();
+    r.onload=function(){
+      var p=null;
+      try{ p=JSON.parse(String(r.result)); }catch(e){}
+      if(!p||typeof p!=="object"||(!p.days&&!p.test)){
+        msg("ไฟล์นี้ไม่ใช่ข้อมูลบันทึกการฝึก ต้องเป็นไฟล์ .json ที่ส่งออกจากหน้านี้",true);
+        fileEl.value=""; return;
+      }
+      data={v:2,days:p.days||{},test:p.test||{}};
+      save(); render();
+      msg("นำเข้าข้อมูลเรียบร้อย ข้อมูลเดิมในเครื่องนี้ถูกแทนที่แล้ว");
+      fileEl.value="";
+    };
+    r.onerror=function(){ msg("อ่านไฟล์ไม่สำเร็จ",true); fileEl.value=""; };
+    r.readAsText(f);
+  });
+
+  document.getElementById("treset").addEventListener("click",function(){
+    if(!confirm("ล้างบันทึกทั้งหมด ทั้งวันที่ฝึก 56 ช่อง และผลทดสอบทุกสัปดาห์ ใช่หรือไม่")) return;
+    data={v:2,days:{},test:{}};
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    render();
+    msg("ล้างข้อมูลแล้ว");
+  });
+
+  render();
+})();
+</script>
+
+</div>
+</body>
+</html>
